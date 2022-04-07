@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 
 /*
@@ -14,12 +15,10 @@ use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.home');
-});
+Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 
-Route::get('/panel',[AdminHomeController::class, 'index'])->name('admin');
+Route::get('/webpanel',[AdminHomeController::class, 'index'])->name('admin');
 
 

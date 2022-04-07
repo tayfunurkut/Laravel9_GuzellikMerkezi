@@ -10,7 +10,7 @@
     
  
      <!-- Site Metas -->
-    <title>Yamifood Restaurant - Responsive HTML5 Template</title>  
+    <title> @yield('title') </title>  
     <meta name="keywords" content="Guzellik Merkezi">
     <meta name="description" content="Güzellik Merkezi">
     <meta name="author" content="Tayfun Ürkut">
@@ -38,12 +38,14 @@
 <body>
 
     @include('home._header')
+    
 
-     @include('home._slider')
-     @include('home._content')
+
+        @section('content')
+        @show()
+
+
 
     @include('home._footer')
-
-
 </body>
 </html>
