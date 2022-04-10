@@ -27,14 +27,15 @@
 </head>
 <body data-background-color="dark">
 	<div class="wrapper">
-
 		@include('admin._header')
-		@include('admin._navbar')
 		@include('admin._sidebar')
 
 		@section('content')
 		@show()
 
 		@include('admin._footer')
+
+
+	</div>
 </body>
 </html>

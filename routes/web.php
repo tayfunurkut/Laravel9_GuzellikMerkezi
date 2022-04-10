@@ -21,10 +21,11 @@ Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('hom
 // ADMİN PANEL ROUTE 
 Route::get('/webpanel',[AdminHomeController::class, 'index'])->name('admin');
 
-// Route::get('/webpanel/category',[App\Http\Controllers\AdminPanel\CategoryController::class, 'index'])->name('admin_category');
+Route::get('/webpanel/category',[App\Http\Controllers\AdminPanel\CategoryController::class, 'index'])->name('admin_category');
 
-// Route::get('/webpanel/category/create',[App\Http\Controllers\AdminPanel\CategoryController::class, 'create'])->name('admin_category_create');
+Route::get('/webpanel/category/create',[App\Http\Controllers\AdminPanel\CategoryController::class, 'create'])->name('admin_category_create');
 
+Route::post('/webpanel/category/create/store',[App\Http\Controllers\AdminPanel\CategoryController::class, 'store'])->name('admin_category_create_store');
 
 Route::middleware([
     'auth:sanctum',
