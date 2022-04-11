@@ -7,7 +7,53 @@
 
 <div class="main-panel">
     <div class="content">
-        <h1>Category Index sayfası</h1>
+        <!--  bu iki kısım kesinlikle olacak -->
+
+
+        <div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Basic</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table id="basic-datatables" class="display table table-striped table-hover" >
+											<thead>
+												<tr>
+													<th>Id</th>
+													<th>Title</th>
+													<th>Keywords</th>
+													<th>Description</th>
+													<th>Image</th>
+													<th>Status</th>
+                                                    <th>Edit</th>
+													<th>Delete</th>
+													<th>Show</th>
+												</tr>
+											</thead>
+											
+											<tbody>
+                                                @foreach($data as $tf)
+												<tr>
+													<td>{{$tf->id}}</td>
+													<td>{{$tf->title}}</td>
+													<td>{{$tf->keywords}}</td>
+													<td>{{$tf->description}}</td>
+													<td>{{$tf->image}}</td>
+													<td>{{$tf->status}}</td>
+                                                    <td><a class="btn btn-block btn-info btn-sm" href="/webpanel/category/edit/{{$tf->id}}">Edit</a></td>
+													<td><a class="btn btn-block btn-danger btn-sm" href="/webpanel/category/delete/{{$tf->id}}">Delete</a></td>
+													<td><a class="btn btn-block btn-success btn-sm" href="/webpanel/category/show/{{$tf->id}}">Show</a></td>
+												</tr>
+											@endforeach
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
     </div>
 
 @endsection()
