@@ -1,28 +1,5 @@
 <footer class="footer">
-				<div class="container-fluid">
-					<nav class="pull-left">
-						<ul class="nav">
-							<li class="nav-item">
-								<a class="nav-link" href="https://www.themekita.com">
-									ThemeKita
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
-									Help
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
-									Licenses
-								</a>
-							</li>
-						</ul>
-					</nav>
-					<div class="copyright ml-auto">
-						2018, made with <i class="fa fa-heart heart text-danger"></i> by <a href="https://www.themekita.com">ThemeKita</a>
-					</div>
-				</div>
+				
 			</footer>
 		</div>
 
@@ -92,9 +69,21 @@
 					</div>
 				</div>
 			</div>
-			<div class="custom-toggle">
+
+
+
+			<!--  CUSTOM TOGGLE -->
+
+
+
+			<!-- <div class="custom-toggle">
 				<i class="flaticon-settings"></i>
-			</div>
+			</div> -->
+
+
+
+
+
 		</div>
 		<!-- End Custom template -->
 	</div>
@@ -139,6 +128,7 @@
 	<!-- Atlantis DEMO methods, don't include it in your project! -->
 	<script src="{{ asset('admin')}}/assets/js/setting-demo.js"></script>
 	<script src="{{ asset('admin')}}/assets/js/demo.js"></script>
+	
 	<script>
 		$('#lineChart').sparkline([102,109,120,99,110,105,115], {
 			type: 'line',

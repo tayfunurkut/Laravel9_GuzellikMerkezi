@@ -13,7 +13,8 @@
         <div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title">Basic</h4>
+									<h4 class="card-title ml-1">Category</h4>
+									<h4 class="card-title"><a href="category/create" class="btn btn-success btn-lg mt-2">Create Category</a></h4>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
