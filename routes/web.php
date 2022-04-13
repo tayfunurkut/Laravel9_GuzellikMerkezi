@@ -28,6 +28,8 @@ Route::get('/webpanel/category/create',[AdminCategoryController::class, 'create'
 
 Route::get('/webpanel/category/edit/{id}',[AdminCategoryController::class, 'edit'])->name('admin_category_edit');
 
+Route::get('/webpanel/category/show/{id}',[AdminCategoryController::class, 'show'])->name('admin_category_show');
+
 Route::post('/webpanel/category/create/store',[AdminCategoryController::class, 'store'])->name('admin_category_create_store');
 
 Route::post('/webpanel/category/update/{id}',[AdminCategoryController::class, 'update'])->name('admin_category_update');
