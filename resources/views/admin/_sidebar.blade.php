@@ -64,7 +64,7 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a href="{{ route('admin_category')}}">
+							<a href="{{ route('webpanel.category.index')}}">
 								<i class="fas fa-table"></i>
 								<p>Category</p>
 							</a>

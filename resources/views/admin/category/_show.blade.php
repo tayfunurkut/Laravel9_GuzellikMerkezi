@@ -10,10 +10,10 @@
     <div class="content">
         <div class="row mt-3 ml-2"> 
             <div class="col-md-4">
-            <a style="height: 40px; display:flex; justify-content:center; align-items:center;" class="btn btn-block btn-info btn-sm" href="/webpanel/category/edit/{{$data->id}}"><b>Edit</b></a>
+            <a style="height: 40px; display:flex; justify-content:center; align-items:center;" class="btn btn-block btn-info btn-sm" href="{{ route('webpanel.category.edit',['id'=>$data->id])}}"><b>Edit</b></a>
             </div>
             <div class="col-md-8"">
-                 <a style="height: 40px; width: 400px; display:flex; justify-content:center; align-items:center;" class="btn btn-block btn-danger btn-sm" href="/webpanel/category/delete/{{$data->id}}"><b>Delete</b></a>
+                 <a style="height: 40px; width: 400px; display:flex; justify-content:center; align-items:center;" class="btn btn-block btn-danger btn-sm" href="#"><b>Delete</b></a>
             </div>
         </div>
         

@@ -8,7 +8,7 @@
     <!-- en üstte olmak zorunda footer altında bittiği için div in kapaması burada açılması gerek -->
 
     <div class="content">
-        <form action="{{ route('admin_category_create_store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('webpanel.category.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row ml-2">
                 <div class="col-md-12">
