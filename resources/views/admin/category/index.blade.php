@@ -40,7 +40,13 @@
 													<td>{{$tf->title}}</td>
 													<td>{{$tf->keywords}}</td>
 													<td>{{$tf->description}}</td>
-													<td>{{$tf->image}}</td>
+													<td>
+														@if ($tf->image)
+															<img src="{{Storage::url($tf->image)}}" alt="" height="90" style="padding: 8px;">
+														@endif
+
+
+													</td>
 													<td>{{$tf->status}}</td>
                                                     <td><a class="btn btn-block btn-info btn-sm" href="/webpanel/category/edit/{{$tf->id}}">Edit</a></td>
 													<td><a class="btn btn-block btn-danger btn-sm" href="/webpanel/category/delete/{{$tf->id}}">Delete</a></td>

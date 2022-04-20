@@ -13,7 +13,7 @@
             <a style="height: 40px; display:flex; justify-content:center; align-items:center;" class="btn btn-block btn-info btn-sm" href="{{ route('webpanel.category.edit',['id'=>$data->id])}}"><b>Edit</b></a>
             </div>
             <div class="col-md-8"">
-                 <a style="height: 40px; width: 400px; display:flex; justify-content:center; align-items:center;" class="btn btn-block btn-danger btn-sm" href="#"><b>Delete</b></a>
+                 <a style="height: 40px; width: 400px; display:flex; justify-content:center; align-items:center;" class="btn btn-block btn-danger btn-sm" href="/webpanel/category/delete/{{$data->id}}"><b>Delete</b></a>
             </div>
         </div>
         
@@ -36,7 +36,13 @@
                     </tr>
                     <tr>
                      <th>Image</th>
-                      <td>{{$data->image}}</td>
+                      <td>
+
+                      @if ($data->image)
+															<img src="{{Storage::url($data->image)}}" alt="" height="90" style="padding: 8px;">
+											@endif
+
+                      </td>
                     </tr>
                     <tr>
                      <th>Status</th>
