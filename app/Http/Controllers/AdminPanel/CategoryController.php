@@ -109,8 +109,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category,$id)
     {
-        //
+        $data = Category::find($id);
+        $data->delete();
+        return redirect('webpanel/category');
     }
 }

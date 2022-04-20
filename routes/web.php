@@ -42,6 +42,8 @@ Route::prefix('/webpanel')->name('webpanel.')->group(function() {
 
         Route::post('/update/{id}','update')->name('update');
 
+        Route::get('/delete/{id}','destroy')->name('delete');
+
 
     });
 });
