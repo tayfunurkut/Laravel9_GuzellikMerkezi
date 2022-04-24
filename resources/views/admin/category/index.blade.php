@@ -22,10 +22,9 @@
 											<thead>
 												<tr>
 													<th>Id</th>
+													<th>Parent</th>
 													<th>Title</th>
-													<th>Keywords</th>
-													<th>Description</th>
-													<th>Image</th>
+													<th>İmages</th>
 													<th>Status</th>
                                                     <th>Edit</th>
 													<th>Delete</th>
@@ -37,9 +36,8 @@
                                                 @foreach($data as $tf)
 												<tr>
 													<td>{{$tf->id}}</td>
+													<td>{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($tf, $tf->title)}}</td>
 													<td>{{$tf->title}}</td>
-													<td>{{$tf->keywords}}</td>
-													<td>{{$tf->description}}</td>
 													<td>
 														@if ($tf->image)
 															<img src="{{Storage::url($tf->image)}}" alt="" height="90" style="padding: 8px;">

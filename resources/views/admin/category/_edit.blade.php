@@ -13,6 +13,20 @@
             <div class="row ml-2">
                 <div class="col-md-12">
                     <div class="form-group">
+                        <label for="">Parent Category</label>
+                        <select name="parentid" class="form-control" id="">
+                            @foreach($datalist as $tf)
+                                <option value="{{ $tf->id }}" @if ($tf->id == $data->parentid) selected="selected" @endif >
+                                    {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($tf, $tf->title)}}
+                                </option>
+                            @endforeach
+                            </select>
+                        
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
                         <label for="email2">Title</label>
                         <input type="text" name="title" class="form-control" id="email2" value="{{$data->title}}">
                         
