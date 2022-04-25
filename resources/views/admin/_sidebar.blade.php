@@ -70,7 +70,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="#">
+							<a href="{{ route('webpanel.service.index')}}">
 								<i class="fas fa-th-list"></i>
 								<p>Services</p>
 							</a>
