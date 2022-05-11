@@ -4,8 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Service;
 
 class Category extends Model
 {
     use HasFactory;
+
+    // one to many
+    public function service()
+    {
+        return $this->hasMany(Service::class);
+    }
 }

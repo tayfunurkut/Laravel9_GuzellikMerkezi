@@ -35,7 +35,7 @@
                                                 @foreach($data as $tf)
 												<tr>
 													<td>{{$tf->id}}</td>
-													<td>{{ \App\Http\Controllers\AdminPanel\AdminServiceController::getParentsTree($tf, $tf->title)}}</td>
+													<td>{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($tf, $tf->title)}}</td>
 													<td>{{$tf->title}}</td>
                                                     <td>{{$tf->price}}</td>
 													<td>

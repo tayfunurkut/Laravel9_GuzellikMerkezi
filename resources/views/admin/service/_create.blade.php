@@ -14,7 +14,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="">Parent Category</label>
-                        <select name="parentid" class="form-control" id="">
+                        <select name="categoryid" class="form-control" id="">
                             <option value="0" selected>Main Category</option>
                             @foreach($data as $tf)
                                 <option value="{{ $tf->id }}">{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($tf, $tf->title)}}</option>

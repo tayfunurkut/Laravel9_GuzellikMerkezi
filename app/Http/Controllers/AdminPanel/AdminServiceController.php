@@ -11,21 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class AdminServiceController extends Controller
 {
 
-    protected $appends = [
-        'getParentsTree'
-    ];
-
-    public static function getParentsTree($service, $title)
-    {
-        if($service->parentid == 0){
-            return $title;
-        }
-        $parent = Service::find($service->parentid);
-        $title  = $parent->title . ' > ' . $title;
-        return AdminServiceController::getParentsTree($parent, $title);
-        # code...
-    }
-
+ 
 
 
 
@@ -94,12 +80,13 @@ class AdminServiceController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category, $id)
+    public function show(Service $service, $id)
     {
         $data = Service::find($id);
+       // dd($data);
 
         return view('admin.service._show', [
-            'data' => $data,
+            'data' => $data
         ]);
     }
 
@@ -109,10 +96,10 @@ class AdminServiceController extends Controller
      * @param  \App\Models\Service  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category, $id)
+    public function edit(Service $service, $id)
     {
         $data = Service::find($id);
-        $datalist = Service::all();
+        $datalist = Category::all();
 
         return view('admin.service._edit', [
             'data' => $data,

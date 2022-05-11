@@ -27,8 +27,11 @@
                       <td>{{$data->id}}</td>
                     </tr>
                     <tr>
-                     <th>Category</th>
-                      <td>{{$data->categoryid}}</td>
+                     <th>Category Id</th>
+                     <!-- $data->id  -->
+                      <td>
+                     {{$data->category->title}}
+                    </td>
                     </tr>
                     <tr>
                     <tr>

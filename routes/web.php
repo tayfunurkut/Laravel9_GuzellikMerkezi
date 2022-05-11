@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
 use App\Http\Controllers\AdminPanel\AdminServiceController as AdminServiceController;
+use App\Http\Controllers\AdminPanel\ImageController;
 use Laravel\Jetstream\Rules\Role;
 
 /*
@@ -66,6 +67,12 @@ Route::prefix('/webpanel')->name('webpanel.')->group(function() {
 
 
     });
+
+        //  Image Routes
+
+
+ 
+
 });
 
 
