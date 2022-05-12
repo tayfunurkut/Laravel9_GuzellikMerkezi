@@ -23,7 +23,8 @@
 													<th>Category</th>
 													<th>Title</th>
                                                     <th>Price</th>
-													<th>İmages</th>
+													<th>Images</th>
+													<th>Image Gallery</th>
 													<th>Status</th>
                                                     <th>Edit</th>
 													<th>Delete</th>
@@ -44,6 +45,12 @@
 														@endif
 
 
+													</td>
+													<td>
+													<a href="{{route ('webpanel.image.index',['sid'=>$tf->id])}}" 
+													onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
+														<img src="{{ asset('admin')}}/assets/img/chadengle.jpg" height="90">
+													</a>
 													</td>
 													<td>{{$tf->status}}</td>
                                                     <td><a class="btn btn-block btn-info btn-sm" href="/webpanel/service/edit/{{$tf->id}}">Edit</a></td>

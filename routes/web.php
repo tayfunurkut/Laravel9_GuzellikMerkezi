@@ -70,6 +70,13 @@ Route::prefix('/webpanel')->name('webpanel.')->group(function() {
 
         //  Image Routes
 
+    Route::prefix('image')->name('image.')->controller(ImageController::class)->group(function () {
+        Route::get('/{sid}', 'index')->name('index');
+        Route::post('/store/{sid}','store')->name('store');
+        Route::get('/destroy/{sid}/{id}','destroy')->name('destroy');
+    
+    });
+
 
  
 
@@ -77,19 +84,6 @@ Route::prefix('/webpanel')->name('webpanel.')->group(function() {
 
 
 
-// Route::get('/webpanel',[AdminHomeController::class, 'index'])->name('admin');
-
-// Route::get('/webpanel/category',[App\Http\Controllers\AdminPanel\CategoryController::class, 'index'])->name('admin_category');
-
-// Route::get('/webpanel/category/create',[AdminCategoryController::class, 'create'])->name('admin_category_create');
-
-// Route::get('/webpanel/category/edit/{id}',[AdminCategoryController::class, 'edit'])->name('admin_category_edit');
-
-// Route::get('/webpanel/category/show/{id}',[AdminCategoryController::class, 'show'])->name('admin_category_show');
-
-// Route::post('/webpanel/category/create/store',[AdminCategoryController::class, 'store'])->name('admin_category_create_store');
-
-// Route::post('/webpanel/category/update/{id}',[AdminCategoryController::class, 'update'])->name('admin_category_update');
 
 
 
