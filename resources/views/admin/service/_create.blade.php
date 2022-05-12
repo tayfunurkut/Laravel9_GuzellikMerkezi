@@ -2,6 +2,10 @@
 
 @section('title', 'Create Category')
 
+@section('head')
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection()
+
 @section('content')
 
 <div class="main-panel">
@@ -14,7 +18,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="">Parent Category</label>
-                        <select name="categoryid" class="form-control" id="">
+                        <select name="category_id" class="form-control" id="">
                             <option value="0" selected>Main Category</option>
                             @foreach($data as $tf)
                                 <option value="{{ $tf->id }}">{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($tf, $tf->title)}}</option>
@@ -54,9 +58,19 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="password">Detail</label><br>
-                        <textarea class="form-control" name="detail" id="">
+                        <textarea class="form-control" name="detail" id="detail">
 
                         </textarea>
+                        <script>
+                        ClassicEditor
+                                .create( document.querySelector( '#detail' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
                     </div>
                 </div>
 

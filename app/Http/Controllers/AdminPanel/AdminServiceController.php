@@ -57,8 +57,8 @@ class AdminServiceController extends Controller
     public function store(Request $request)
     {
         $data = new Service();
-        $data->categoryid = $request->categoryid;
-        $data->userid = 0;
+        $data->category_id = $request->category_id;
+        $data->user_id = 0;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
@@ -117,8 +117,8 @@ class AdminServiceController extends Controller
     public function update(Request $request, Service $service, $id)
     {
         $data = Service::find($id);
-        $data->categoryid = $request->categoryid;
-        $data->userid = 0;
+        $data->category_id = $request->category_id;
+        $data->user_id = 0;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;

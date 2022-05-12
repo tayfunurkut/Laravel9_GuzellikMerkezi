@@ -24,6 +24,7 @@
 
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="{{ asset('admin')}}/assets/css/demo.css">
+	@yield('head')
 </head>
 <body data-background-color="dark">
 	<div class="wrapper">
@@ -37,5 +38,6 @@
 
 
 	</div>
+	@yield('foot')
 </body>
 </html>

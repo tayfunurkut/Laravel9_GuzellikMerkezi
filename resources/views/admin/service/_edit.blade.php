@@ -2,6 +2,10 @@
 
 @section('title', 'Edit Category')
 
+@section('head')
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection()
+
 @section('content')
 
 <div class="main-panel">
@@ -14,7 +18,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="">Parent Service</label>
-                        <select name="parentid" class="form-control" id="">
+                        <select name="category_id" class="form-control" id="">
                             @foreach($datalist as $tf)
                                 <option value="{{ $tf->id }}" @if ($tf->id == $data->parentid) selected="selected" @endif >
                                     {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($tf, $tf->title)}}
@@ -50,9 +54,20 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="password">Detay</label><br>
-                        <textarea class="form-control" name="detail" id="">
+                        <textarea class="form-control" name="detail" id="detail">
                         {{$data->detail}}
                         </textarea>
+                <script>
+                ClassicEditor
+                        .create( document.querySelector( '#detail' ) )
+                        .then( editor => {
+                                console.log( editor );
+                        } )
+                        .catch( error => {
+                                console.error( error );
+                        } );
+                </script>
+
                     </div>
                 </div>
 
