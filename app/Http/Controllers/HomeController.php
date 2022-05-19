@@ -15,4 +15,12 @@ class HomeController extends Controller
             'servicedata' => $servicedata
         ]);
     }
+
+    public function service($id){
+        $data = Service::find($id);
+        return view('home.service',[
+            'data'=>$data
+        ]);
+    }
+
 }
