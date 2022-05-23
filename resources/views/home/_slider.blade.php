@@ -1,4 +1,4 @@
-<div id="slides" class="cover-slides">
+<!-- <div id="slides" class="cover-slides">
 		<ul class="slides-container">
 			@foreach($sliderdata as $data)
 			<li class="text-center">
@@ -19,5 +19,30 @@
 			<a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 			<a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
 		</div>
-	</div>
+	</div> -->
 	<!-- End slides -->
+
+
+
+
+
+
+	<section class="flexslider">
+        <ul class="slides">
+
+		@foreach($sliderdata as $data)
+          <li style="background-image: url('{{ Storage::url($data->image) }}')" class="overlay">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="probootstrap-slider-text text-center">
+                    <h1 class="probootstrap-heading probootstrap-animate">{{$data->title}}</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+		  @endforeach
+         
+        </ul>
+      </section>

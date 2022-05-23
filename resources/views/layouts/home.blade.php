@@ -1,41 +1,22 @@
-<!DOCTYPE html>
-<html lang="en"><!-- Basic -->
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-   
-    <!-- Mobile Metas -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title>ProBootstrap:Enlight &mdash; Free Bootstrap Theme, Free Responsive Bootstrap Website Template</title>
+    <meta name="description" content="Free Bootstrap Theme by ProBootstrap.com">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
     
- 
-     <!-- Site Metas -->
-    <title> @yield('title') </title>  
-    <meta name="keywords" content="Guzellik Merkezi">
-    <meta name="description" content="Güzellik Merkezi">
-    <meta name="author" content="Tayfun Ürkut">
-
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="{{ asset('assets')}}/images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="{{ asset('assets')}}/images/apple-touch-icon.png">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('assets')}}/css/bootstrap.min.css">    
-	<!-- Site CSS -->
-    <link rel="stylesheet" href="{{ asset('assets')}}/css/style.css">    
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{{ asset('assets')}}/css/responsive.css">
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets')}}/css/styles-merged.css">
+    <link rel="stylesheet" href="{{ asset('assets')}}/css/style.min.css">
     <link rel="stylesheet" href="{{ asset('assets')}}/css/custom.css">
 
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
     <![endif]-->
-
-</head>
-
-<body>
+  </head>
+  <body>
 
     @include('home._header')
     
