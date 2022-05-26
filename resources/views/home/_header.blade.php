@@ -1,36 +1,99 @@
-	<!-- Start header -->
-	<header class="top-navbar">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container">
-				<a class="navbar-brand" href="{{ asset('assets')}}/index.html">
-					<img src="{{ asset('assets')}}/images/logo.png" alt="" />
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-				  <span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbars-rs-food">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="{{ asset('assets')}}/index.html">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{ asset('assets')}}/menu.html">Menu</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{ asset('assets')}}/about.html">About</a></li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="{{ asset('assets')}}/#" id="dropdown-a" data-toggle="dropdown">Pages</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="{{ asset('assets')}}/reservation.html">Reservation</a>
-								<a class="dropdown-item" href="{{ asset('assets')}}/stuff.html">Stuff</a>
-								<a class="dropdown-item" href="{{ asset('assets')}}/gallery.html">Gallery</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="{{ asset('assets')}}/#" id="dropdown-a" data-toggle="dropdown">Blog</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="{{ asset('assets')}}/blog.html">blog</a>
-								<a class="dropdown-item" href="{{ asset('assets')}}/blog-details.html">blog Single</a>
-							</div>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="{{ asset('assets')}}/contact.html">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
+
+  <div class="probootstrap-search" id="probootstrap-search">
+      <a href="{{ asset('assets')}}/#" class="probootstrap-close js-probootstrap-close"><i class="icon-cross"></i></a>
+      <form action="#">
+        <input type="search" name="s" id="search" placeholder="Search a keyword and hit enter...">
+      </form>
+    </div>
+    
+    <!-- <div class="probootstrap-page-wrapper"> -->
+
+      <!-- Fixed navbar -->
+      
+      <div class="probootstrap-header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-9 probootstrap-top-quick-contact-info">
+              <span><i class="icon-location2"></i>Brooklyn, NY 10036, United States</span>
+              <span><i class="icon-phone2"></i>+1-123-456-7890</span>
+              <span><i class="icon-mail"></i>info@probootstrap.com</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 probootstrap-top-social">
+              <ul>
+                <li><a href="{{ asset('assets')}}/#"><i class="icon-twitter"></i></a></li>
+                <li><a href="{{ asset('assets')}}/#"><i class="icon-facebook2"></i></a></li>
+                <li><a href="{{ asset('assets')}}/#"><i class="icon-instagram2"></i></a></li>
+                <li><a href="{{ asset('assets')}}/#"><i class="icon-youtube"></i></a></li>
+                <li><a href="{{ asset('assets')}}/#" class="probootstrap-search-icon js-probootstrap-search"><i class="icon-search"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-default probootstrap-navbar">
+        <div class="container">
+          <div class="navbar-header">
+            <div class="btn-more js-btn-more visible-xs">
+              <a href="{{ asset('assets')}}/#"><i class="icon-dots-three-vertical "></i></a>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ asset('assets')}}/index.html" title="ProBootstrap:Enlight">Enlight</a>
+          </div>
+
+          <div id="navbar-collapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="{{ asset('assets')}}/index.html">Home</a></li>
+              <li><a href="{{ asset('assets')}}/courses.html">Courses</a></li>
+              <li><a href="{{ asset('assets')}}/teachers.html">Teachers</a></li>
+              <li><a href="{{ asset('assets')}}/events.html">Events</a></li>
+              @php
+                  $mainCategories =\App\Http\Controllers\HomeController::mainCategoryList();
+              @endphp
+              <li class="dropdown">
+                <a href="{{ asset('assets')}}/#" data-toggle="dropdown" class="dropdown-toggle">Pages</a>
+                <ul class="dropdown-menu">
+                  <!-- <li><a href="{{ asset('assets')}}/about.html">About Us</a></li>
+                  <li><a href="{{ asset('assets')}}/courses.html">Courses</a></li>
+                  <li><a href="{{ asset('assets')}}/course-single.html">Course Single</a></li>
+                  <li><a href="{{ asset('assets')}}/gallery.html">Gallery</a></li> -->
+                  @foreach($mainCategories as $category)
+                  <li class="dropdown-submenu dropdown">
+                    <a href="{{ asset('assets')}}/#" data-toggle="dropdown" class="dropdown-toggle"><span>{{$category->title}}</span></a>
+                   
+                    @if(count($category->children))
+                      @include('home.categorytree', ['children' => $category->children])
+                   @endif
+                    <!-- <ul class="dropdown-menu">
+
+                      <li><a href="{{ asset('assets')}}/#">{{$category->children}}</a></li>
+                      <li><a href="{{ asset('assets')}}/#">Second Level Menu</a></li>
+                      <li><a href="{{ asset('assets')}}/#">Second Level Menu</a></li>
+                      <li><a href="{{ asset('assets')}}/#">Second Level Menu</a></li>
+                    </ul> -->
+                  </li>
+                  @endforeach
+    
+                </ul>
+              </li>
+              <li><a href="{{ asset('assets')}}/contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+
+
+
+
+
+
+      

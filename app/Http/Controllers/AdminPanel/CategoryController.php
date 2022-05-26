@@ -16,14 +16,27 @@ class CategoryController extends Controller
 
     public static function getParentsTree($category, $title)
     {
-        if($category->parentid == 0){
+        if($category->parent_id==0){
             return $title;
         }
-        $parent = Category::find($category->parentid);
+        $parent = Category::find($category->parent_id);
         $title  = $parent->title . ' > ' . $title;
         return CategoryController::getParentsTree($parent, $title);
         # code...
     }
+
+
+   
+      
+      
+
+
+
+
+
+
+
+
 
 
     /**
@@ -64,7 +77,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data = new Category();
-        $data->parentid = $request->parentid;
+        $data->parent_id = $request->parentid;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
@@ -118,7 +131,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category, $id)
     {
         $data = Category::find($id);
-        $data->parentid = $request->parentid;
+        $data->parent_id = $request->parentid;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;

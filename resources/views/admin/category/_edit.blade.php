@@ -16,7 +16,7 @@
                         <label for="">Parent Category</label>
                         <select name="parentid" class="form-control" id="">
                             @foreach($datalist as $tf)
-                                <option value="{{ $tf->id }}" @if ($tf->id == $data->parentid) selected="selected" @endif >
+                                <option value="{{ $tf->id }}" @if ($tf->id == $data->parent_id) selected="selected" @endif >
                                     {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($tf, $tf->title)}}
                                 </option>
                             @endforeach
