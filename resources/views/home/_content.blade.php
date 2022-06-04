@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <!-- <section class="flexslider">
+=======
+<section class="flexslider">
+>>>>>>> 7bd1b148b2fad6b4e7db427864e6fe7a3e30cb9d
         <ul class="slides">
           <li style="background-image: url(img/slider_1.jpg)" class="overlay">
             <div class="container">
@@ -47,4 +51,8 @@
         </div>
       </section>
 
+<<<<<<< HEAD
       -->
+=======
+     
+>>>>>>> 7bd1b148b2fad6b4e7db427864e6fe7a3e30cb9d
