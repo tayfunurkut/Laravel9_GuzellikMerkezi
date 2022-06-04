@@ -47,40 +47,23 @@
 
           <div id="navbar-collapse" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="{{ asset('assets')}}/index.html">Home</a></li>
-              <li><a href="{{ asset('assets')}}/courses.html">Courses</a></li>
-              <li><a href="{{ asset('assets')}}/teachers.html">Teachers</a></li>
-              <li><a href="{{ asset('assets')}}/events.html">Events</a></li>
-              @php
-                  $mainCategories =\App\Http\Controllers\HomeController::mainCategoryList();
-              @endphp
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="courses.html">Courses</a></li>
+              <li><a href="teachers.html">Teachers</a></li>
+              <li><a href="events.html">Events</a></li>
               <li class="dropdown">
-                <a href="{{ asset('assets')}}/#" data-toggle="dropdown" class="dropdown-toggle">Pages</a>
-                <ul class="dropdown-menu">
-                  <!-- <li><a href="{{ asset('assets')}}/about.html">About Us</a></li>
-                  <li><a href="{{ asset('assets')}}/courses.html">Courses</a></li>
-                  <li><a href="{{ asset('assets')}}/course-single.html">Course Single</a></li>
-                  <li><a href="{{ asset('assets')}}/gallery.html">Gallery</a></li> -->
-                  @foreach($mainCategories as $category)
-                  <li class="dropdown-submenu dropdown">
-                    <a href="{{ asset('assets')}}/#" data-toggle="dropdown" class="dropdown-toggle"><span>{{$category->title}}</span></a>
-                   
-                    @if(count($category->children))
-                      @include('home.categorytree', ['children' => $category->children])
-                   @endif
-                    <!-- <ul class="dropdown-menu">
+              @php
+                   $parentCategories = \App\Http\Controllers\HomeController::maincategorylist();
+               @endphp
 
-                      <li><a href="{{ asset('assets')}}/#">{{$category->children}}</a></li>
-                      <li><a href="{{ asset('assets')}}/#">Second Level Menu</a></li>
-                      <li><a href="{{ asset('assets')}}/#">Second Level Menu</a></li>
-                      <li><a href="{{ asset('assets')}}/#">Second Level Menu</a></li>
-                    </ul> -->
-                  </li>
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages</a>
+                <ul class="dropdown-menu">
+                  @foreach($parentCategories as $tf)
+                  <li><a href="about.html">{{$tf->title}}</a></li>
                   @endforeach
-    
                 </ul>
               </li>
-              <li><a href="{{ asset('assets')}}/contact.html">Contact</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
         </div>

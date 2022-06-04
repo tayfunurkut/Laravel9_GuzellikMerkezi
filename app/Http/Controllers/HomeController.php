@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
 
     public static function mainCategoryList(){
-        return Category::where('parent_id', '=', 0)->with('children')->get();
+        return Category::where('parentid', '=', 0)->with('children')->get();
     }
 
 
