@@ -23,6 +23,8 @@ Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('hom
 
 Route::get('/service/{id}',[App\Http\Controllers\HomeController::class, 'service'])->name('service');
 
+Route::get('/categoryservice/{id}', [App\Http\Controllers\HomeController::class, 'categoryservice'])->name('categoryservice');
+
 
     //  ************* ADMIN PANEL ROUTES **************
 

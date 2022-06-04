@@ -68,11 +68,8 @@
         </div>
       </footer>
 
-<<<<<<< HEAD
-    <!-- </div> -->
-=======
+
     </div>
->>>>>>> 7bd1b148b2fad6b4e7db427864e6fe7a3e30cb9d
     <!-- END wrapper -->
     
 

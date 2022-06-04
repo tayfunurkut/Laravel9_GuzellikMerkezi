@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -29,5 +30,16 @@ class HomeController extends Controller
             'data'=>$data
         ]);
     }
+
+    public function categoryservice($id)
+    {
+        $category = Category::find($id);
+        $services = DB::table('services')->where('category_id', $id)->get();
+        return view('home.categoryservices', [
+            'category' => $category,
+            'services' => $services
+        ]);
+    }
+
 
 }

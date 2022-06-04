@@ -56,7 +56,7 @@
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages</a>
                 <ul class="dropdown-menu">
                   @foreach($parentCategories as $tf)
-                  <li><a href="about.html">{{$tf->title}}</a></li>
+                  <li><a href="{{route('categoryservice',['id'=>$tf->id])}}">{{$tf->title}}</a></li>
                   @endforeach
                 </ul>
               </li>
