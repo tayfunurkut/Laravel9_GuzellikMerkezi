@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController as HomeController;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
 use App\Http\Controllers\AdminPanel\AdminServiceController as AdminServiceController;
+use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use Laravel\Jetstream\Rules\Role;
 
@@ -101,8 +102,16 @@ Route::prefix('/webpanel')->name('webpanel.')->group(function() {
     
     });
 
+      //****************ADMİN MESSAGE ROUTES*****************************
+      Route::prefix('message')->name('message.')->controller(MessageController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/store/', 'store')->name('store');
+        Route::get('/delete/{id}', 'destroy')->name('delete');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/show/{id}', 'show')->name('show');
+    });
 
- 
+
 
 });
 

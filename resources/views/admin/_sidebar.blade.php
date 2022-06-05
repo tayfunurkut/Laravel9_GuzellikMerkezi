@@ -89,7 +89,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="#maps">
+							<a href="{{ route('webpanel.message.index')}}">
 								<i class="fas fa-map-marker-alt"></i>
 								<p>Messages</p>
 							</a>

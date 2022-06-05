@@ -37,18 +37,30 @@
                   </div>
                 </div>
                 <div class="col-md-7 col-md-push-1  probootstrap-animate" id="probootstrap-content">
+
+                @include('home.messages')
+                
+
                   <h2>Get In Touch</h2>
                   <p>Contact us using the form below.</p>
 
-                  <form action="" method="post" class="probootstrap-form">
+                  <form action="{{route('storemessage')}}" method="post" class="probootstrap-form">
                       @csrf
                     <div class="form-group">
-                      <label for="name">Full Name</label>
+                      <label for="name">Name</label>
                       <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Lastname</label>
+                      <input type="text" class="form-control" id="name" name="lastname">
                     </div>
                     <div class="form-group">
                       <label for="email">Email</label>
                       <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Phone</label>
+                      <input type="text" class="form-control" id="name" name="phone">
                     </div>
                     <div class="form-group">
                       <label for="subject">Subject</label>
