@@ -83,7 +83,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="#tables">
+							<a href="{{ route('webpanel.faq.index')}}">
 								<i class="fas fa-table"></i>
 								<p>Faq</p>
 							</a>

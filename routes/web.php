@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
 use App\Http\Controllers\AdminPanel\AdminServiceController as AdminServiceController;
 use App\Http\Controllers\AdminPanel\MessageController;
+use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use Laravel\Jetstream\Rules\Role;
 
@@ -33,6 +34,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('storemessage');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
 
 // Route::get('/webpanel/settings', [\App\Http\Controllers\AdminPanel\SettingController::class, 'index'])->name('adminsetting');
@@ -108,6 +110,17 @@ Route::prefix('/webpanel')->name('webpanel.')->group(function() {
         Route::post('/store/', 'store')->name('store');
         Route::get('/delete/{id}', 'destroy')->name('delete');
         Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/show/{id}', 'show')->name('show');
+    });
+
+      //****************ADMİN FAQ ROUTES*****************************
+      Route::prefix('faq')->name('faq.')->controller(FaqController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('delete');
         Route::get('/show/{id}', 'show')->name('show');
     });
 
