@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Service;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -38,6 +39,30 @@ class HomeController extends Controller
         return view('home.categoryservices', [
             'category' => $category,
             'services' => $services
+        ]);
+    }
+
+    public function about()
+    {
+        $setting = Setting::first();
+        return view('home.about', [
+            'setting' => $setting,
+        ]);
+    }
+
+    public function references()
+    {
+        $setting = Setting::first();
+        return view('home.references', [
+            'setting' => $setting,
+        ]);
+    }
+
+    public function contact()
+    {
+        $setting = Setting::first();
+        return view('home.contact', [
+            'setting' => $setting,
         ]);
     }
 

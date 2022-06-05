@@ -2,6 +2,10 @@
 
 @section('title', 'Admin Panel')
 
+@section('head')
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection()
+
 @section('content')
 
 <div class="main-panel">
@@ -164,6 +168,16 @@
                                                                       rows="4">{{$data->aboutus}}
                                                             </textarea>
                                                         </div>
+                                                        <script>
+                ClassicEditor
+                        .create( document.querySelector( '#aboutus' ) )
+                        .then( editor => {
+                                console.log( editor );
+                        } )
+                        .catch( error => {
+                                console.error( error );
+                        } );
+                </script>
                                                         
 										</div>
 
@@ -173,10 +187,20 @@
                                                         <div class="form-group">
                                                             <label for="exampleTextarea1">Contact</label>
                                                             <textarea name="contact"
-                                                                      class="form-control" id="contactt"
+                                                                      class="form-control" id="contact"
                                                                       rows="4">{{$data->contact}}
                                                             </textarea>
                                                         </div>
+                                                        <script>
+                ClassicEditor
+                        .create( document.querySelector( '#contact' ) )
+                        .then( editor => {
+                                console.log( editor );
+                        } )
+                        .catch( error => {
+                                console.error( error );
+                        } );
+                </script>
 										</div>
 
 
@@ -188,6 +212,16 @@
                                                                       class="form-control" id="referencess"
                                                                       rows="4">{{$data->references}}</textarea>
                                                         </div>
+                                                        <script>
+                ClassicEditor
+                        .create( document.querySelector( '#references' ) )
+                        .then( editor => {
+                                console.log( editor );
+                        } )
+                        .catch( error => {
+                                console.error( error );
+                        } );
+                </script>
 										</div>
                                         <button type="submit" class="btn btn-primary mt-3 col-12">
                                             Update

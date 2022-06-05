@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeController as HomeController;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
 use App\Http\Controllers\AdminPanel\AdminServiceController as AdminServiceController;
@@ -24,6 +24,14 @@ Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('hom
 Route::get('/service/{id}',[App\Http\Controllers\HomeController::class, 'service'])->name('service');
 
 Route::get('/categoryservice/{id}', [App\Http\Controllers\HomeController::class, 'categoryservice'])->name('categoryservice');
+
+
+
+
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/references', [HomeController::class, 'references'])->name('references');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('storemessage');
 
 
 // Route::get('/webpanel/settings', [\App\Http\Controllers\AdminPanel\SettingController::class, 'index'])->name('adminsetting');
