@@ -29,12 +29,20 @@ Route::get('/categoryservice/{id}', [App\Http\Controllers\HomeController::class,
 
 
 
-
+//**********************GENERAL ROUTES****************************
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('storemessage');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+
+
+//**********************LOGİN LOGOUT PANEL ROUTES****************************
+Route::view('/loginuser', 'home.login')->name('loginuser');
+Route::view('/registeruser', 'home.register')->name('registeruser');
+Route::view('/loginadmin', 'admin.login')->name('loginadmin');
+Route::get('/logoutuser', [HomeController::class, 'logout'])->name('logoutuser');
+Route::post('/loginadmincheck', [HomeController:: class, 'loginadmincheck'])->name('loginadmincheck');
 
 
 // Route::get('/webpanel/settings', [\App\Http\Controllers\AdminPanel\SettingController::class, 'index'])->name('adminsetting');

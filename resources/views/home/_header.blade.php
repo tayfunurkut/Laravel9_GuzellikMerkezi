@@ -21,7 +21,7 @@
                 <li><a href="{{ asset('assets')}}/#"><i class="icon-facebook2"></i></a></li>
                 <li><a href="{{ asset('assets')}}/#"><i class="icon-instagram2"></i></a></li>
                 <li><a href="{{ asset('assets')}}/#"><i class="icon-youtube"></i></a></li>
-                <li><a href="{{ asset('assets')}}/#" class="probootstrap-search-icon js-probootstrap-search"><i class="icon-search"></i></a></li>
+                <li><a href="/loginuser" class=""><i class="icon-user"> Login</i></a></li>
               </ul>
             </div>
           </div>
