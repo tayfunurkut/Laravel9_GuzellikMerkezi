@@ -26,10 +26,21 @@ Route::get('/service/{id}',[App\Http\Controllers\HomeController::class, 'service
 Route::get('/categoryservice/{id}', [App\Http\Controllers\HomeController::class, 'categoryservice'])->name('categoryservice');
 
 
+// Route::get('/webpanel/settings', [\App\Http\Controllers\AdminPanel\SettingController::class, 'index'])->name('adminsetting');
+
+
     //  ************* ADMIN PANEL ROUTES **************
 
 Route::prefix('/webpanel')->name('webpanel.')->group(function() {
+
+
     Route::get('/', [AdminHomeController::class, 'index'])->name('index');
+
+    Route::get('/settings', [AdminHomeController::class, 'setting'])->name('setting');
+
+    Route::post('/settings/update', [AdminHomeController::class, 'settingsUpdate'])->name('setting.update');
+
+
 
     //  ************* ADMIN CATEGORY ROUTES **************
 
@@ -48,6 +59,8 @@ Route::prefix('/webpanel')->name('webpanel.')->group(function() {
         Route::post('/update/{id}','update')->name('update');
 
         Route::get('/delete/{id}','destroy')->name('delete');
+
+
 
 
     });
