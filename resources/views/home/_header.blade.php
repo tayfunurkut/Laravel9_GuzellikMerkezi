@@ -25,7 +25,7 @@
                 <li><a href="/logoutuser" class=""><i class="icon-user"> Logout</i></a></li>
                 @endauth
                 @guest
-                <li><a href="/loginuser" class=""><i class="icon-user"> Login</i></a></li>
+                <li><a href="/login" class=""><i class="icon-user"> Login</i></a></li>
                 @endguest
               </ul>
             </div>

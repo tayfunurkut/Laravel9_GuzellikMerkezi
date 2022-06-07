@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\AdminUserController;
+use App\Http\Controllers\UserController;
 use Laravel\Jetstream\Rules\Role;
 
 /*
@@ -40,13 +41,30 @@ Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
 //**********************LOGİN LOGOUT PANEL ROUTES****************************
 Route::view('/loginuser', 'home.login')->name('loginuser');
-Route::view('/registeruser', 'home.register')->name('registeruser');
-Route::view('/loginadmin', 'admin.login')->name('loginadmin');
+Route::view('/registeruser', 'auth.register')->name('registeruser');
+Route::view('/loginadmin', 'auth.login')->name('loginadmin');
 Route::get('/logoutuser', [HomeController::class, 'logout'])->name('logoutuser');
 Route::post('/loginadmincheck', [HomeController:: class, 'loginadmincheck'])->name('loginadmincheck');
 
 
-// Route::get('/webpanel/settings', [\App\Http\Controllers\AdminPanel\SettingController::class, 'index'])->name('adminsetting');
+    //  ************* USER PANEL ROUTES **************
+
+
+Route::middleware('auth')->group(function () {
+  Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function(){
+      Route::get('/', 'index')->name('index');
+
+  });
+});
+
+// Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function () {
+//     Route::get('/myprofile', [\App\Http\Controllers\UserController::class, 'index'])->name('user_profile');
+//     Route::get('/myreviews', [\App\Http\Controllers\UserController::class, 'myreviews'])->name('myreviews');
+//     Route::get('/deletemyreview/{id}', [\App\Http\Controllers\UserController::class, 'destroymyreview'])->name('destroymyreview');
+
+// });
+
+
 
 
     //  ************* ADMIN PANEL ROUTES **************
