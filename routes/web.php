@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminPanel\AdminServiceController as AdminServiceContro
 use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\ImageController;
+use App\Http\Controllers\AdminPanel\AdminUserController;
 use Laravel\Jetstream\Rules\Role;
 
 /*
@@ -50,14 +51,16 @@ Route::post('/loginadmincheck', [HomeController:: class, 'loginadmincheck'])->na
 
     //  ************* ADMIN PANEL ROUTES **************
 
-Route::prefix('/webpanel')->name('webpanel.')->group(function() {
+    Route::middleware('auth')->group(function () {
 
 
-    Route::get('/', [AdminHomeController::class, 'index'])->name('index');
-
-    Route::get('/settings', [AdminHomeController::class, 'setting'])->name('setting');
-
-    Route::post('/settings/update', [AdminHomeController::class, 'settingsUpdate'])->name('setting.update');
+        //**********************ADMİN PANEL ROUTES****************************
+            Route::middleware('admin')->prefix('webpanel')->name('webpanel.')->group(function () {
+            Route::get('/', [AdminHomeController::class, 'index'])->name('home');
+        
+                //*************************GENERAL ROUTES****************************
+            Route::get('/setting', [AdminHomeController::class, 'setting'])->name('setting');
+            Route::post('/setting/update', [AdminHomeController::class, 'settingsUpdate'])->name('setting_update');
 
 
 
@@ -121,7 +124,7 @@ Route::prefix('/webpanel')->name('webpanel.')->group(function() {
         Route::get('/show/{id}', 'show')->name('show');
     });
 
-      //****************ADMİN FAQ ROUTES*****************************
+      //****************     ADMİN FAQ ROUTES    *****************************
       Route::prefix('faq')->name('faq.')->controller(FaqController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
@@ -133,6 +136,18 @@ Route::prefix('/webpanel')->name('webpanel.')->group(function() {
     });
 
 
+          //****************      ADMİN USER ROUTES    ****************************
+    Route::prefix('user')->name('user.')->controller(AdminUserController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('delete');
+        Route::post('/addrole/{id}', 'addrole')->name('addrole');
+        Route::get('/destroyrole/{uid}/{rid}', 'destroyrole')->name('destroyrole');
+    });
+
+    });
 
 });
 

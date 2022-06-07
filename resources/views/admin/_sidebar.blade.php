@@ -95,7 +95,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="#charts">
+							<a href="/webpanel/user">
 								<i class="far fa-chart-bar"></i>
 								<p>Users</p>
 							</a>

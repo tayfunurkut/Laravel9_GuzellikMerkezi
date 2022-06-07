@@ -21,7 +21,12 @@
                 <li><a href="{{ asset('assets')}}/#"><i class="icon-facebook2"></i></a></li>
                 <li><a href="{{ asset('assets')}}/#"><i class="icon-instagram2"></i></a></li>
                 <li><a href="{{ asset('assets')}}/#"><i class="icon-youtube"></i></a></li>
+                @auth
+                <li><a href="/logoutuser" class=""><i class="icon-user"> Logout</i></a></li>
+                @endauth
+                @guest
                 <li><a href="/loginuser" class=""><i class="icon-user"> Login</i></a></li>
+                @endguest
               </ul>
             </div>
           </div>
