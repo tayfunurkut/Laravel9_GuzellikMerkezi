@@ -8,6 +8,7 @@ use App\Models\Setting;
 use App\Models\Message;
 use App\Models\Faq;
 use Illuminate\Http\Request;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -33,9 +34,11 @@ class HomeController extends Controller
     public function service($id){
         $data = Service::find($id);
         $setting = Setting::first();
+        $comment = Comment::where('service_id', $id)->where('status', 'True')->get();
         return view('home.service',[
             'data'=>$data,
-            'setting' => $setting
+            'setting' => $setting,
+            'comment' => $comment
         ]);
     }
 
@@ -89,6 +92,21 @@ class HomeController extends Controller
         $data->save();
 
         return redirect()->route('contact')->with('info', 'Your Message has been sent , Thank You.');
+
+    }
+
+    public function storecomment(Request $request)
+    {
+        
+        $data = new Comment();
+        $data->user_id = Auth::id();
+        $data->service_id = $request->input('service_id');
+        $data->comment = $request->input('comment');
+        $data->rate = $request->input('rate');
+        $data->ip = request()->ip();
+        $data->save();
+
+        return redirect()->route('service',['id' => $request->input('service_id')])->with('success', 'Your Message has been sent , Thank You.');
 
     }
 

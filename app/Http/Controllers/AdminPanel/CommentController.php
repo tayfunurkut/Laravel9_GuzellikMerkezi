@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\AdminPanel;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Setting;
 use App\Models\Comment;
-use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,27 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $setting = Setting::first();
-        return view('home.user.index', [
-            'setting' => $setting
-        ]);
+        $data = Comment::all();
+        return view('admin.comment.index', ['data' => $data]);
     }
 
-    public function comment()
-    {
-        $setting = Setting::first();
-        $comment = Comment::where('user_id', '=', Auth::id())->get();
-        return view('home.user.comment',[
-            'setting' => $setting,
-            'comment' => $comment,
-        ]);
-    }
-
-    public function commentdestroy($id)
-    {
-        Comment::destroy($id);
-        return redirect('/userpanel/comment');
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -64,9 +46,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $data = Comment::find($id);
+        return view('admin.comment.show', ['data' => $data]);
     }
 
     /**
@@ -89,7 +72,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $data = Comment::find($id);
+        $data->status = $request->status;
+        $data->save();
+        return redirect(route('webpanel.comment.index'));
     }
 
     /**
@@ -100,9 +87,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-    public function myprofile(){
-        echo "profil sayfası";
+        $data=Comment::find($id);
+        $data->delete();
+        return redirect(route('webpanel.comment.index'));
     }
 }

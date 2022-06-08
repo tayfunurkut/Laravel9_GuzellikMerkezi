@@ -8,7 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
+use App\Models\Appointment;
+use App\Models\Role;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Comment;
 
 class User extends Authenticatable
 {
@@ -63,4 +66,15 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class,'role_users');
     }
+    
+    public function reviews()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function appoint()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }
+

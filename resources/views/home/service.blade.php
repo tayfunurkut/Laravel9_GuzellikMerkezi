@@ -26,6 +26,7 @@
 					</div>
 				</div>
 			</div>
+			@include('home.messages')
 			<div class="row">
 				<div class="col-xl-8 col-lg-8 col-12">
 					<form action="{{ route('user_appointments')}}" method="post" enctype="multipart/form-data">
@@ -49,79 +50,69 @@
 							<button type="submit" class="btn btn-primary">Appointment</button>
 						</div>
 						</form>
-						<div class="blog-comment-box mt-3">
+						<div class="blog-comment-box mt-5">
 							<h3>Comments</h3>
-							<div class="comment-item">
-								<div class="comment-item-left">
-									<img src="images/avt-img.jpg" alt="">
+							
+							@foreach($comment as $cm)
+								<div class="container">
+									<div class="row">
+										<div class="col-md-12">
+											<h4>{{$cm->user->name}}
+											<h6><strong>Service Oran: @if($cm->rate==1)
+										<strong>*</strong>
+										@endif
+										@if($cm->rate==2)
+										<strong>**</strong>
+										@endif
+										@if($cm->rate==3)
+										<strong>***</strong>
+										@endif
+										@if($cm->rate==4)
+										<strong>****</strong>
+										@endif
+										@if($cm->rate==5)
+										<strong>*****</strong>
+										@endif</strong></h6>
+										</div>
+											<div>
+												<p>{{$cm->comment}}</p>
+												
+											</div>
+										</div>
+									</div>
 								</div>
-								<div class="comment-item-right">
-									<div class="pull-left">
-										
-									</div>
-									<div class="pull-right">
-										<i class="fa fa-clock-o" aria-hidden="true"></i>Time : <span>11.30 am</span>
-									</div>
-									<div class="des-l">
-										<p>Morbi lacinia ultrices lorem id tincidunt. Cras id dui risus. Pellentesque consectetur id mi sed pharetra. Proin imperdiet gravida nisl, sit amet varius urna. In auctor.</p>
-									</div>
-									<a href="#" class="right-btn-re"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a>
-								</div>
-							</div>
-							<div class="comment-item children">
-								<div class="comment-item-left">
-									<img src="images/avt-img.jpg" alt="">
-								</div>
-								<div class="comment-item-right">
-									<div class="pull-left">
-										<a href="#">Admin</a>
-									</div>
-									<div class="pull-right">
-										<i class="fa fa-clock-o" aria-hidden="true"></i>Time : <span>1.30 pm</span>
-									</div>
-									<div class="des-l">
-										<p>Morbi lacinia ultrices lorem id tincidunt. Cras id dui risus. Pellentesque consectetur id mi sed pharetra. Proin imperdiet gravida nisl, sit amet varius urna. In auctor.</p>
-									</div>
-									<a href="#" class="right-btn-re"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a>
-								</div>
-							</div>
-							<div class="comment-item">
-								<div class="comment-item-left">
-									<img src="images/avt-img.jpg" alt="">
-								</div>
-								<div class="comment-item-right">
-									<div class="pull-left">
-										<a href="#">Rubel Ahmed</a>
-									</div>
-									<div class="pull-right">
-										<i class="fa fa-clock-o" aria-hidden="true"></i>Time : <span>11.30 am</span>
-									</div>
-									<div class="des-l">
-										<p>Morbi lacinia ultrices lorem id tincidunt. Cras id dui risus. Pellentesque consectetur id mi sed pharetra. Proin imperdiet gravida nisl, sit amet varius urna. In auctor.</p>
-									</div>
-									<a href="#" class="right-btn-re"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a>
-								</div>
-							</div>
+							@endforeach
+
+
+							<div class="mt-2 mb-2" style="border-top: 1px solid gray;"></div>
 						</div>
 						<div class="comment-respond-box">
-							<h3>Leave your comment </h3>
 							<div class="comment-respond-form">
-								<form id="commentrespondform" class="comment-form-respond row" method="post">
-									<div class="col-lg-6 col-md-6 col-sm-6">
+								<form id="commentrespondform" action="{{route('storecomment')}}" class="comment-form-respond row" method="post">
+								@csrf
+								<input type="hidden" name="service_id" value="{{$data->id}}">	
+									<div class="col-lg-12 col-md-12 col-sm-12">
 										<div class="form-group">
-											<input id="name_com" class="form-control" name="name" placeholder="Name" type="text">
+											<label class="form-group" for="textarea_com"> Yorumunuz:</label>
+											<textarea style="width: 100%; height: 120px; resize: none;" class="form-control" id="textarea_com" name="comment" placeholder="Your Message" rows="2"></textarea>
 										</div>
 										<div class="form-group">
-											<input id="email_com" class="form-control" name="email" placeholder="Your Email" type="email">
-										</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										<div class="form-group">
-											<textarea class="form-control" id="textarea_com" placeholder="Your Message" rows="2"></textarea>
+											<label class="form-group" for="yildiz">Yıldız Seçiniz</label>
+											<select style="width: 100%;" name="rate" id="yildiz">
+												<option value="1">*</option>
+												<option value="2">**</option>
+												<option value="3">***</option>
+												<option value="4">****</option>
+												<option value="5">*****</option>
+											</select>
 										</div>
 									</div>
 									<div class="col-lg-12 col-md-12 col-sm-12">
-										<button class="btn btn-submit">Submit comment</button>
+										@auth
+										<button class="btn btn-primary">Submit comment</button>
+										@else
+										<a href="/login" class="btn btn-primary"> Login</a>
+										@endauth
 									</div>
 								</form>
 							</div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\AdminUserController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminPanel\CommentController;
 use App\Http\Controllers\AdminPanel\AppointmentController;
 use Laravel\Jetstream\Rules\Role;
 
@@ -37,6 +38,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('storemessage');
+Route::post('/storecomment', [HomeController::class, 'storecomment'])->name('storecomment');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
 
@@ -54,6 +56,8 @@ Route::post('/loginadmincheck', [HomeController:: class, 'loginadmincheck'])->na
 Route::middleware('auth')->group(function () {
   Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function(){
       Route::get('/', 'index')->name('index');
+      Route::get('/comment', 'comment')->name('comment');
+      Route::get('/comment/delete/{id}', 'commentDestroy')->name('commentdestroy');
 
   });
 });
@@ -192,6 +196,14 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
 
 
 
+          //****************ADMİN COMMENT ROUTES*****************************
+        Route::prefix('comment')->name('comment.')->controller(CommentController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/store/', 'store')->name('store');
+        Route::get('/delete/{id}', 'destroy')->name('delete');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/show/{id}', 'show')->name('show');
+    });
 
 
 

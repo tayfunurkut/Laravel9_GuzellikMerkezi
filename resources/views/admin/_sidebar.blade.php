@@ -72,7 +72,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a href="#forms">
+							<a href="/webpanel/comment">
 								<i class="fa fa-pen-square"></i>
 								<p>Comments</p>
 							</a>

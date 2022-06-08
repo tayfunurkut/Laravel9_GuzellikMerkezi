@@ -14,7 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
+            $table->integer('user_id');
+            $table->integer('service_id');
+            $table->string('comment', 100);
+            $table->integer('rate')->default('0');
+            $table->string('ip',150)->nullable();
+            $table->string('status',150)->default('False');
             $table->timestamps();
         });
     }
