@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\AdminUserController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminPanel\AppointmentController;
 use Laravel\Jetstream\Rules\Role;
 
 /*
@@ -57,13 +58,23 @@ Route::middleware('auth')->group(function () {
   });
 });
 
-// Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function () {
-//     Route::get('/myprofile', [\App\Http\Controllers\UserController::class, 'index'])->name('user_profile');
-//     Route::get('/myreviews', [\App\Http\Controllers\UserController::class, 'myreviews'])->name('myreviews');
-//     Route::get('/deletemyreview/{id}', [\App\Http\Controllers\UserController::class, 'destroymyreview'])->name('destroymyreview');
+/************************************************************* */
 
-// });
 
+Route::middleware('auth')->prefix('user')->namespace('user')->group(function () {
+
+
+    Route::prefix('appointment')->group(function () {
+        Route::post('/', [\App\Http\Controllers\AppointmentController::class, 'index'])->name('user_appointments');
+        Route::get('create', [\App\Http\Controllers\AppointmentController::class, 'create'])->name('user_appointment_add');
+        Route::post('store', [\App\Http\Controllers\AppointmentController::class, 'store'])->name('user_appointment_store');
+        Route::get('edit/{id}', [\App\Http\Controllers\AppointmentController::class, 'edit'])->name('user_appointment_edit');
+        Route::post('update/{id}', [\App\Http\Controllers\AppointmentController::class, 'update'])->name('user_appointment_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\AppointmentController::class, 'destroy'])->name('user_appointment_delete');
+        Route::get('show', [\App\Http\Controllers\AppointmentController::class, 'show'])->name('user_appointment_show');
+    });
+
+});
 
 
 
@@ -78,7 +89,7 @@ Route::middleware('auth')->group(function () {
         
                 //*************************GENERAL ROUTES****************************
             Route::get('/setting', [AdminHomeController::class, 'setting'])->name('setting');
-            Route::post('/setting/update', [AdminHomeController::class, 'settingsUpdate'])->name('setting_update');
+            Route::post('/setting/update', [AdminHomeController::class, 'settingsUpdate'])->name('setting.update');
 
 
 
@@ -164,6 +175,26 @@ Route::middleware('auth')->group(function () {
         Route::post('/addrole/{id}', 'addrole')->name('addrole');
         Route::get('/destroyrole/{uid}/{rid}', 'destroyrole')->name('destroyrole');
     });
+
+
+          //****************      ADMİN APPOINTMENT ROUTES    ****************************
+    Route::prefix('appointment')->group(function () {
+        Route::get('/', [AppointmentController::class, 'index'])->name('admin_appointment');
+        Route::get('accepted', [AppointmentController::class, 'acceptedAppointment'])->name('accepted_appointment');
+        Route::get('completed', [AppointmentController::class, 'completedAppointment'])->name('completed_appointment');        
+        Route::get('create', [AppointmentController::class, 'create'])->name('admin_appointment_add');
+        Route::post('store', [AppointmentController::class, 'store'])->name('admin_appointment_store');
+        Route::get('edit/{id}', [AppointmentController::class, 'edit'])->name('admin_appointment_edit');
+        Route::post('update/{id}', [AppointmentController::class, 'update'])->name('admin_appointment_update');
+        Route::get('delete/{id}', [AppointmentController::class, 'destroy'])->name('admin_appointment_delete');
+        Route::get('show', [AppointmentController::class, 'show'])->name('admin_appointment_show');
+    });
+
+
+
+
+
+
 
     });
 

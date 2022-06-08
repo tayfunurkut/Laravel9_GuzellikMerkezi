@@ -12,7 +12,7 @@
               
             <div class="container mt-3 text-light" style="">
                 <center>
-                    <h4><a style="color: white;" href="">Home</a><span style="color: white;">/</span><a style="color: white;" href="">About</a></h4>
+                    <h4><a style="color: white;" href="/">Home</a><span style="color: white;">/</span><a style="color: white;" href="/about">About</a></h4>
                  </center>
              </div>
 
@@ -25,15 +25,10 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <div class="probootstrap-flex-block">
-                <div class="probootstrap-text probootstrap-animate">
-                  <div class="text-uppercase probootstrap-uppercase">History</div>
+              <div class="probootstrap-flex-block w-100">
+                <div class="probootstrap-text probootstrap-animate w-100">
                   <h3>About Us</h3>
-                  <p>{{ $setting->aboutus }}</p>
-                  <p><a href="#" class="btn btn-primary">Learn More</a></p>
-                </div>
-                <div class="probootstrap-image probootstrap-animate" style="background-image: url(img/slider_4.jpg)">
-                  <a href="" class="btn-video "><i class=""></i></a>
+                  <p>{!! $setting->aboutus !!}</p>
                 </div>
               </div>
             </div>

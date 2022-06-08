@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title', 'Beauty-Center')
+@section('title', 'Faq')
 
 
 @section('content')
@@ -35,7 +35,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-left section-heading probootstrap-animate">
-              <h1 class="mb0">Contact Us</h1>
+              <h1 class="mb0">Frequently Asked Question</h1>
             </div>
           </div>
         </div>

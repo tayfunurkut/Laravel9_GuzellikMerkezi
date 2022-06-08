@@ -13,7 +13,7 @@
             		<!-- her content sayfasında main-panel clasına sahip bir div açılmalı -->
         
         <div class="container-fluid">
-        <form class="form" action="{{route('webpanel.setting.update')}}" method="post"
+        <form class="form" action="/webpanel/setting/update" method="post"
                       enctype="multipart/form-data">
                     @csrf
             <div class="row">

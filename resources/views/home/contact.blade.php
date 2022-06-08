@@ -27,11 +27,9 @@
                     <h3>Pages</h3>
                     <ul class="probootstrap-side-menu">
                       
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="courses.html">Courses</a></li>
-                      <li><a href="teachers.html">Teachers</a></li>
-                      <li><a href="events.html">Events</a></li>
-                      <li><a href="about.html">About Us</a></li>
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/faq">Faq</a></li>
+                      <li><a href="/about">About Us</a></li>
                       <li class="active"><a>Contact Us</a></li>
                     </ul>
                   </div>

@@ -21,13 +21,8 @@
             <div class="col-md-12">
               <div class="probootstrap-flex-block">
                 <div class="probootstrap-text probootstrap-animate">
-                  <div class="text-uppercase probootstrap-uppercase">Featured Course</div>
-                  <h3>Chemical Engineering</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis explicabo veniam labore ratione illo vero voluptate a deserunt incidunt odio aliquam commodi blanditiis voluptas error non rerum temporibus optio accusantium!</p>
-                  <p><a href="#" class="btn btn-primary">Enroll now</a> <span class="enrolled-count">2,928 students enrolled</span></p>
-                </div>
-                <div class="probootstrap-image " style="background-image: url(img/slider_3.jpg)">
-                  <a href="" class="btn-video "><i class=""></i></a>
+                  <h3>{{$category->title}}</h3>
+                  <p>{{$category->description}}</p>
                 </div>
               </div>
             </div>

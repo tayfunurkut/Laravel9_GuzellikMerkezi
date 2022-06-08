@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\AdminPanel;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Setting;
+use App\Models\Appointment;
 
-class UserController extends Controller
+class AppointmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $setting = Setting::first();
-        return view('home.user.index', [
-            'setting' => $setting
+        $datalist=Appointment::all();
+        return view('admin.appointment.index',[
+            'datalist'=>$datalist
         ]);
     }
 
@@ -60,7 +61,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data=Appointment::find($id);
+        $datalist =Appointment::all();
+        return view('admin.appointment.edit',[
+            'data'=>$data,'datalist'=>$datalist
+        ]);
+            
     }
 
     /**
@@ -72,7 +78,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=Appointment::find($id);
+        $data->note=$request->input('note');
+        $data->status=$request->input('status');
+        $data->save();
+        return redirect()->back()->with('success','Updated Successfully.');
     }
 
     /**
@@ -83,9 +93,25 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Appointment::destroy($id);
+        return redirect('/webpanel/appointment');
     }
-    public function myprofile(){
-        echo "profil sayfası";
+
+
+    public function acceptedAppointment()
+    {
+
+        $datalist=Appointment::where('status', 'Accepted')->get();
+        return view('admin.appointment.acceptedappointment',[
+            'datalist'=>$datalist
+        ]);
+    }
+    public function completedAppointment()
+    {
+
+        $datalist=Appointment::where('status', 'Completed')->get();
+        return view('admin.appointment.acceptedappointment',[
+            'datalist'=>$datalist
+        ]);
     }
 }

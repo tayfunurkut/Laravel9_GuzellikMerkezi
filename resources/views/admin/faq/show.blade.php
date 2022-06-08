@@ -28,11 +28,11 @@
                                         <td>{{$data->id}}</td>
                                     </tr>
                                     <tr>
-                                        <th style="width: 30px">ID</th>
+                                        <th style="width: 30px">Question</th>
                                         <td>{{$data->question}}</td>
                                     </tr>
                                     <tr>
-                                        <th style="width: 30px">ID</th>
+                                        <th style="width: 30px">Question Answer</th>
                                         <td>{!!$data->answer!!}</td>
                                     </tr>
 

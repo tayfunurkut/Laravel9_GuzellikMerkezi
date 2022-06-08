@@ -8,8 +8,8 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Hizrian
-									<span class="user-level">Administrator</span>
+									<span class="user-level">{{Auth::user()->name}}</span><br>
+									<a href="/logoutuser"><span class="user-level">Logout</span></a>
 									
 								</span>
 							</a>
@@ -41,22 +41,17 @@
 							<div class="collapse" id="base">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="components/avatars.html">
-											<span class="sub-item">New Appointments</span>
-										</a>
-									</li>
-									<li>
-										<a href="components/buttons.html">
+										<a href="/webpanel/appointment/accepted">
 											<span class="sub-item">Accepted Appointments</span>
 										</a>
 									</li>
 									<li>
-										<a href="components/gridsystem.html">
+										<a href="/webpanel/appointment">
 											<span class="sub-item">Shipping Appointments</span>
 										</a>
 									</li>
 									<li>
-										<a href="components/panels.html">
+										<a href="/webpanel/appointment/completed">
 											<span class="sub-item">Completed Appointments</span>
 										</a>
 									</li>
@@ -100,16 +95,9 @@
 								<p>Users</p>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="widgets.html">
-								<i class="fas fa-desktop"></i>
-								<p>Social</p>
-							</a>
-						</li>
-
 
 						<li class="nav-item">
-							<a href="settings" class="nav-link">
+							<a href="/webpanel/setting" class="nav-link">
 								<i class="nav-icon far fa-circle text-danger"></i>
 								<p class="text">Settings</p>
 							</a>

@@ -28,8 +28,12 @@
 			</div>
 			<div class="row">
 				<div class="col-xl-8 col-lg-8 col-12">
+					<form action="{{ route('user_appointments')}}" method="post" enctype="multipart/form-data">
+					@csrf
+					<input type="hidden" name="price" value="{{$data->price}}">
+					<input type="hidden" name="id" value="{{$data->id}}">
 					<div class="blog-inner-details-page">
-						<div class="blog-inner-box">
+						<div class="blog-inner-box ">
 							<div class="side-blog-img">
 								<img class="img-fluid" src="{{ Storage::url($data->image) }}" alt="">							
 								<div class="date-blog-up">
@@ -39,13 +43,13 @@
 							<div class="inner-blog-detail details-page">
 								<h3>{{$data->title}}</h3>
 								<p>{{$data->description}}</p>
-								<blockquote>
-									<p>{!! $data->detail !!}</p>
-								<!-- </blockquote> -->
-								<p>Vestibulum quis ultricies enim. Quisque eu sapien a erat congue lacinia bibendum ac massa. Morbi vehicula aliquet libero sit amet dictum. Integer vel mauris non magna consequat porttitor. Nulla facilisi. Suspendisse posuere, elit eu fringilla congue, turpis magna tempor odio, a placerat magna tortor a mauris.</p>
+								
+								<p>{!! $data->detail !!}</p>
 							</div>
+							<button type="submit" class="btn btn-primary">Appointment</button>
 						</div>
-						<div class="blog-comment-box">
+						</form>
+						<div class="blog-comment-box mt-3">
 							<h3>Comments</h3>
 							<div class="comment-item">
 								<div class="comment-item-left">
@@ -147,11 +151,9 @@
 								</div>
 							</div>
 						</div>
-						<h3>Recent Tag</h3>
+						<h3>{{$data->keywords}}</h3>
 						<div class="blog-tag-box">
-							<ul class="list-inline tag-list">
-								<li class="list-inline-item"><a href="#">{{$data->keywords}}</a></li>
-							</ul>
+							
 						</div>
 					</div>
 				</div>

@@ -22,16 +22,20 @@ class HomeController extends Controller
     public function index(){
         $sliderdata = Service::limit(4)->get();
         $servicedata = Service::limit(6)->get();
+        $setting = Setting::first();
         return view('home.index', [
             'sliderdata' => $sliderdata,
-            'servicedata' => $servicedata
+            'servicedata' => $servicedata,
+            'setting' => $setting
         ]);
     }
 
     public function service($id){
         $data = Service::find($id);
+        $setting = Setting::first();
         return view('home.service',[
-            'data'=>$data
+            'data'=>$data,
+            'setting' => $setting
         ]);
     }
 
@@ -39,9 +43,11 @@ class HomeController extends Controller
     {
         $category = Category::find($id);
         $services = DB::table('services')->where('category_id', $id)->get();
+        $setting = Setting::first();
         return view('home.categoryservices', [
             'category' => $category,
-            'services' => $services
+            'services' => $services,
+            'setting' => $setting
         ]);
     }
 

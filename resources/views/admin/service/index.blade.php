@@ -49,7 +49,7 @@
 													<td>
 													<a href="{{route ('webpanel.image.index',['sid'=>$tf->id])}}" 
 													onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
-														<img src="{{ asset('admin')}}/assets/img/chadengle.jpg" height="90">
+														<img class="py-2" src="{{ asset('admin')}}/assets/img/indir.png" height="90">
 													</a>
 													</td>
 													<td>{{$tf->status}}</td>
