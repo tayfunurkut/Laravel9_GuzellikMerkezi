@@ -25,7 +25,6 @@
                 <div class="probootstrap-text probootstrap-animate">
                   <h3>About Our Company</h3>
                   <p>{!! $setting->aboutus !!}</p>
-                  <p><a href="/about" class="btn btn-primary">Learn More</a></p>
                 </div>
                 @foreach($sliderdata as $data)
                 <div class="probootstrap-image probootstrap-animate" style="background-image: url({{ Storage::url($data->image) }})">
@@ -45,7 +44,7 @@
           <!-- END row -->
           <div class="row">
           @foreach($servicedata as $tf)
-            <div class="col-md-6" style="height: 275px;">
+            <div class="col-md-6" style="height: 275px !important;">
               <div class="probootstrap-service-2 probootstrap-animate">
                 <div class="image">
                   <div class="image-bg">

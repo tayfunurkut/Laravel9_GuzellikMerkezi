@@ -25,27 +25,26 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Service</th>
-                                                <th>Username</th>
-                                                <th>Comment</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
                                                 <th>Status</th>
-                                                <th>Rate</th>
+                                                <th>Price</th>
                                                 <th>Delete</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($comment as $rs)
-
+                                            @foreach($appointment as $rs)
                                                 <tr>
                                                     <td>{{$rs->id}}</td>
                                                     <td><a href="/service/{{$rs->service->id}}">{{$rs->service->title}}</a></td>
-                                                    <td>{{$rs->user->name}}</td>
-                                                    <td>{{$rs->comment}}</td>
+                                                    <td>{{$rs->date}}</td>
+                                                    <td>{{$rs->time}}</td>
                                                     <td>{{$rs->status}}</td>
-                                                    <td>{{$rs->rate}}</td>
+                                                    <td>{{$rs->price}}</td>
                                                     <td style="text-align: center">
                                                         <a class="btn btn-danger btn-rounded btn-fw"
                                                            style="color: white;"
-                                                           href="/userpanel/comment/delete/{{$rs->id}}"
+                                                           href="/userpanel/myappointments/delete/{{$rs->id}}"
                                                            ,
                                                            onclick="return confirm('Delete Are You Sure ?')">Delete</a>
                                                     </td>

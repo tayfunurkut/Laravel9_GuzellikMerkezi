@@ -72,9 +72,9 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    public function appoint()
+    public function appointment()
     {
         return $this->hasMany(Appointment::class);
     }
-}
 
+}

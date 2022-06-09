@@ -28,6 +28,8 @@
 			</div>
 			@include('home.messages')
 			<div class="row">
+
+
 				<div class="col-xl-8 col-lg-8 col-12">
 					<form action="{{ route('user_appointments')}}" method="post" enctype="multipart/form-data">
 					@csrf
@@ -80,12 +82,42 @@
 											</div>
 										</div>
 									</div>
+									@endforeach
 								</div>
-							@endforeach
+							
 
 
-							<div class="mt-2 mb-2" style="border-top: 1px solid gray;"></div>
 						</div>
+
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 ">
+						<div class="right-side-blog">
+							<h3>Service Detay</h3>
+							<div class="post-box-blog">
+								<div class="recent-post-box">
+									
+									
+									<div class="recent-box-blog">
+										<div class="recent-img">
+											<img class="img-fluid" src="images/post-img-01.jpg" alt="">
+										</div>
+										<div class="recent-info">
+											<ul>
+												<li><i class="zmdi zmdi-account"></i>Posted By : <span>Rubel Ahmed</span></li>
+												<li>|</li>
+												<li><i class="zmdi zmdi-time"></i>Time : <span>11.30 am</span></li>
+											</ul>
+											<h1>{{$data->price}} TL</h1>
+										</div>
+									</div>
+								</div>
+							</div>
+							<h3>{{$data->keywords}}</h3>
+						
+						</div>
+						</div>
+						</div>
+
+
 						<div class="comment-respond-box">
 							<div class="comment-respond-form">
 								<form id="commentrespondform" action="{{route('storecomment')}}" class="comment-form-respond row" method="post">
@@ -117,37 +149,10 @@
 								</form>
 							</div>
 						</div>
-					</div>
+					
 				</div>
 			
-				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
-					<div class="right-side-blog">
-						<h3>Recent Post</h3>
-						<div class="post-box-blog">
-							<div class="recent-post-box">
-								
-								
-								<div class="recent-box-blog">
-									<div class="recent-img">
-										<img class="img-fluid" src="images/post-img-01.jpg" alt="">
-									</div>
-									<div class="recent-info">
-										<ul>
-											<li><i class="zmdi zmdi-account"></i>Posted By : <span>Rubel Ahmed</span></li>
-											<li>|</li>
-											<li><i class="zmdi zmdi-time"></i>Time : <span>11.30 am</span></li>
-										</ul>
-										<h1>{{$data->price}} TL</h1>
-									</div>
-								</div>
-							</div>
-						</div>
-						<h3>{{$data->keywords}}</h3>
-						<div class="blog-tag-box">
-							
-						</div>
-					</div>
-				</div>
+				
 			
 			</div>
 		</div>

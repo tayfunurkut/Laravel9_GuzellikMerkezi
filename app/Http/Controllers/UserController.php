@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\Comment;
@@ -31,6 +32,24 @@ class UserController extends Controller
             'comment' => $comment,
         ]);
     }
+
+    public function myappointments()
+    {
+        $setting = Setting::first();
+        $appointment = Appointment::where('user_id', '=', Auth::id())->get();
+        return view('home.user.myappointments',[
+            'setting' => $setting,
+            'appointment' => $appointment,
+        ]);
+    }
+
+    public function myappointmentsdestroy($id)
+    {
+        Appointment::destroy($id);
+        return redirect('/userpanel/myappointments');
+    }
+
+    
 
     public function commentdestroy($id)
     {

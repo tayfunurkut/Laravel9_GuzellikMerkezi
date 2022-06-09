@@ -14,7 +14,7 @@
                 <h2>Message Detail Page</h2>
             </center>
             <div class="Messaged">
-                <td><a href="/webpanel/message/delete/{{$data->id}}"
+                <td><a href="/webpanel/comment/delete/{{$data->id}}"
                        class="btn btn-danger btn-rounded btn-fw">Delete</a></td>
             </div>
             <div class="table-responsive pt-3">

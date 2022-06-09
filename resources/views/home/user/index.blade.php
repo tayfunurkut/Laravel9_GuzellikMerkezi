@@ -13,7 +13,7 @@
                 <a href="/">Home</a>
                 </li>
             <li><a href="/userpanel/comment">My Comments</a></li>
-            <li><a href="#">My Appointments</a></li>
+            <li><a href="/userpanel/myappointments">My Appointments</a></li>
             <li><a href="/logoutuser">Logout</a></li>
         </ul>
         </div>

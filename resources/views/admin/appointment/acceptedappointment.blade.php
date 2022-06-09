@@ -41,7 +41,7 @@
                                 @foreach($datalist as $data)
                                     <tr>
                                         <td>{{$data->id}}</td>
-                                        <td><a href="" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">{{$data->service_id}}</a></td>
+                                        <td><a href="/service/{{$data->service->id}}" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">{{$data->service->title}}</a></td>
                                         <td><a href="" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">{{$data->user_id}}</a></td>
                                         <td>{{$data->date}}</td>
                                         <td>{{$data->time}}</td>
